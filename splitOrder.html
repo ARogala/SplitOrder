@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Split Orders</title>
+    <script type="text/javascript" src="./splitOrder.js"></script>
+    <script type="text/javascript">
+        //splits order in 3 evenly as possible (initial proof of concept)
+        /*
+        let ord =24.95;
+        
+        //ord = parseFloat((ord + .01).toFixed(2));
+
+        let recipients = 3;
+
+        let remainder = ord%recipients;
+        //greatest common factor
+        let GCF = Math.floor(ord/recipients);
+        //console.log("ord " +  ord);
+        //console.log('remainder '+ remainder);
+        //console.log('GCF '+ GCF);
+        let sub1 = GCF + (remainder/recipients);
+        let sub2 = sub1;
+        let sub3 = sub1;
+        //console.log('sub1 '+ sub1);
+        let sumSubs = parseFloat((parseFloat(sub1.toFixed(2)) + parseFloat(sub2.toFixed(2)) + parseFloat(sub3.toFixed(2))).toFixed(2));
+        //console.log('sumSubs '+ sumSubs);
+        let difference = parseFloat((sumSubs - ord).toFixed(2));
+        //console.log('difference '+ difference); 
+
+        //if diff >0 subtract diff from one or more subs
+        //if diff <0 add to abs of diff to subs
+        //if diff = 0  || -0 (seriously small number) even split
+        if(difference > 0) {
+            sub1 = parseFloat(sub1.toFixed(2)) - difference;
+        } else if (difference < 0) {
+            sub1 = parseFloat(sub1.toFixed(2)) + Math.abs(difference);
+        } 
+
+        sumSubs = parseFloat((parseFloat(sub1.toFixed(2)) + parseFloat(sub2.toFixed(2)) + parseFloat(sub3.toFixed(2))).toFixed(2));
+        
+        if(sumSubs == ord) {
+            console.log("ture");
+        }
+        console.log(sub1.toFixed(2));
+        console.log(sub2.toFixed(2));
+        console.log(sub3.toFixed(2));
+        */        
+    </script>
+</head>
+
+<body>
+    Just a simple script to split orders - see console press F12
+</body>
+
+</html>

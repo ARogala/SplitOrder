@@ -8,12 +8,22 @@ namespace SplitOrder
         static void Main(string[] args)
         {
            
-            SplitOrder(3, 24.95);
-            SplitOrder(5, 55.78);
-            var ord = SplitOrder(16, 322.52);
-           
+            //SplitOrder(3, 24.95);
+            //SplitOrder(5, 55.78);
+            
 
-            Console.WriteLine("[{0}]", string.Join(", ", ord));
+
+            try
+            {
+                var ord = SplitOrder(16, 322.52);
+
+
+                Console.WriteLine("[{0}]", string.Join(", ", ord));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: them sum of the array doesn't equal the order.");
+            }
         }
 
         static double[] SplitOrder(int recipients, double order)
@@ -40,7 +50,7 @@ namespace SplitOrder
             double sumSubs = 0;
             for (int i = 0; i < recipients; i++)
             {
-                sumSubs = sumSubs + subs[i];
+                sumSubs += subs[i];
             }
             sumSubs = Math.Round(sumSubs, 2);
             //Console.WriteLine(sumSubs);
@@ -96,7 +106,7 @@ namespace SplitOrder
             sumSubs = Math.Round(sumSubs, 2);
 
             
-            if(sumSubs == order)
+            if(sumSubs == 2)
             {
                 //Console.WriteLine("Split order between " + recipients + " people");
                 //Console.WriteLine("[{0}]", string.Join(", ", subs));
@@ -106,8 +116,9 @@ namespace SplitOrder
             }
             else
             {
-                Console.WriteLine("Error: them sum of the array doesn't equal the order");
-                return subs;
+                //Console.WriteLine("Error: them sum of the array doesn't equal the order");
+                //return subs;
+                throw new Exception("Error: them sum of the array doesn't equal the order.");
             }
             
         }

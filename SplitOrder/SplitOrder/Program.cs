@@ -8,12 +8,15 @@ namespace SplitOrder
         static void Main(string[] args)
         {
            
-            splitOrder(3, 24.95);
-            splitOrder(5, 55.78);
-            splitOrder(16, 322.52);
+            SplitOrder(3, 24.95);
+            SplitOrder(5, 55.78);
+            var ord = SplitOrder(16, 322.52);
+           
+
+            Console.WriteLine("[{0}]", string.Join(", ", ord));
         }
 
-        static void splitOrder(int recipients, double order)
+        static double[] SplitOrder(int recipients, double order)
         {
             double remainder = order % recipients;
             //greatest common factor
@@ -95,14 +98,16 @@ namespace SplitOrder
             
             if(sumSubs == order)
             {
-                Console.WriteLine("Split order between " + recipients + " people");
-                Console.WriteLine("[{0}]", string.Join(", ", subs));
-                Console.WriteLine("Order Total ");
-                Console.WriteLine(order);
+                //Console.WriteLine("Split order between " + recipients + " people");
+                //Console.WriteLine("[{0}]", string.Join(", ", subs));
+                //Console.WriteLine("Order Total ");
+                //Console.WriteLine(order);
+                return subs;
             }
             else
             {
-                Console.WriteLine("Error");
+                Console.WriteLine("Error: them sum of the array doesn't equal the order");
+                return subs;
             }
             
         }

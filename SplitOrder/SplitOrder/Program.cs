@@ -7,16 +7,42 @@ namespace SplitOrder
         
         static void Main(string[] args)
         {
+            Console.WriteLine("This program will split an order/bill as evenly as possible between a specified number of people.");
+
+            Console.WriteLine("Please enter the number of people: ");
+            int numPeople;
+            bool success = Int32.TryParse(Console.ReadLine(), out numPeople);
+            while(!success)
+            {
+                Console.WriteLine("You must enter an integer for the number of people.");
+                Console.WriteLine("Please enter the number of people: ");
+                success = Int32.TryParse(Console.ReadLine(), out numPeople);
+            }        
+            Console.WriteLine("Please enter the order/bill amount: ");
+            double orderTotal;
+            success = double.TryParse(Console.ReadLine(), out orderTotal);
+            while(!success)
+            {
+                Console.WriteLine("You must enter a decimal value for the order total.");
+                Console.WriteLine("Please enter the order/bill amount: ");
+                success = double.TryParse(Console.ReadLine(), out orderTotal);
+            }
            
+            
             try
             {
-                var ord = SplitOrder(16, 322.52);
+                var ord = SplitOrder(numPeople, orderTotal);
+                Console.WriteLine("Split order between " + numPeople + " people");
                 Console.WriteLine("[{0}]", string.Join(", ", ord));
+                Console.WriteLine("Order Total ");
+                Console.WriteLine(orderTotal);
+
             }
             catch (Exception)
             {
                 Console.WriteLine("Error: The sum of the array doesn't equal the order.");
             }
+          
         }
 
         static double[] SplitOrder(int recipients, double order)
@@ -101,10 +127,6 @@ namespace SplitOrder
             
             if(sumSubs == order)
             {
-                //Console.WriteLine("Split order between " + recipients + " people");
-                //Console.WriteLine("[{0}]", string.Join(", ", subs));
-                //Console.WriteLine("Order Total ");
-                //Console.WriteLine(order);
                 return subs;
             }
             //dont think this will ever throw (math has been tested out)
